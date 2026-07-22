@@ -1,3 +1,4 @@
+import bgVideo from '../assets/video/video.mp4';
 import nosotrosHistoria from '../assets/images/nosotros-historia.jpg';
 import nosotros1 from '../assets/images/nosotros-1.jpg';
 import nosotros2 from '../assets/images/nosotros-2.jpg';
@@ -5,8 +6,13 @@ import nosotros3 from '../assets/images/nosotros-3.jpg';
 
 export default function About() {
   return (
-    <div className="w-full bg-transparent">
-      <section className="relative min-h-[60vh] flex items-center justify-center">
+    <div className="w-full bg-brand-dark">
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-brand-black overflow-hidden">
+        <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover opacity-30">
+          <source src={bgVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark"></div>
+        
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center space-y-8 animate-fade-in-up">
           <h2 className="text-sm font-bold text-brand-gold uppercase tracking-[0.3em]">Sobre Nosotros</h2>
           <h3 className="text-4xl md:text-6xl font-black text-white leading-tight drop-shadow-2xl">Expertos en <span className="text-brand-gold border-b-2 border-brand-gold">Transmisiones</span> y Direcciones.</h3>
@@ -30,8 +36,9 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-brand-dark/95 backdrop-blur-md py-20 px-4">
+      <section className="bg-brand-dark py-20 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          
           <div className="bg-brand-card/80 border border-gray-800 rounded-sm overflow-hidden group shadow-lg flex flex-col">
             <img src={nosotros1} alt="Experiencia" className="w-full h-56 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100" />
             <div className="p-8 flex-grow">
@@ -39,6 +46,7 @@ export default function About() {
               <p className="text-gray-400 text-sm leading-relaxed">Contamos con años de experiencia diagnosticando y reparando sistemas hidráulicos y transmisiones automáticas de todas las marcas.</p>
             </div>
           </div>
+
           <div className="bg-brand-card/80 border border-gray-800 rounded-sm overflow-hidden group shadow-lg flex flex-col">
             <img src={nosotros2} alt="Calidad" className="w-full h-56 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100" />
             <div className="p-8 flex-grow">
@@ -46,6 +54,7 @@ export default function About() {
               <p className="text-gray-400 text-sm leading-relaxed">Utilizamos exclusivamente refacciones OEM y de alto rendimiento para asegurar que tu reparación sea duradera y confiable.</p>
             </div>
           </div>
+
           <div className="bg-brand-card/80 border border-gray-800 rounded-sm overflow-hidden group shadow-lg flex flex-col">
             <img src={nosotros3} alt="Garantía" className="w-full h-56 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 opacity-80 group-hover:opacity-100" />
             <div className="p-8 flex-grow">
@@ -53,6 +62,7 @@ export default function About() {
               <p className="text-gray-400 text-sm leading-relaxed">Cada servicio y pieza que sale de nuestras instalaciones cuenta con garantía por escrito para tu total tranquilidad.</p>
             </div>
           </div>
+
         </div>
       </section>
     </div>
