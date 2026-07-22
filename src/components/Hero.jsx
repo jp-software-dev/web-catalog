@@ -1,35 +1,34 @@
-export default function Hero() {
+export default function Hero({ setView }) {
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <div className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-corporate-black">
       <video 
         autoPlay 
         loop 
         muted 
-        playsInline 
-        className="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover"
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-40"
       >
-        <source src="./assets/hero-bg.mp4" type="video/mp4" />
+        <source src="./hero-bg.mp4" type="video/mp4" />
       </video>
       
-      {/* Overlay de contraste para legibilidad */}
-      <div className="absolute z-10 inset-0 bg-corporate/80"></div>
-      
-      <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
-          Excelencia Automotriz en <span className="text-corporate-accent">The Collection</span>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-corporate-dark/90"></div>
+
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-6">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
+          Refacciones Toluca
         </h1>
-        <p className="text-lg md:text-xl text-corporate-muted mb-10 font-light">
-          Descubre nuestra selección curada de vehículos de alto rendimiento. Lujo, potencia y exclusividad en cada detalle.
+        <p className="text-lg md:text-2xl text-corporate-gray font-light">
+          Especialistas en componentes para vehículos de alto rendimiento.
         </p>
-        <a 
-          href="https://wa.me/1234567890" 
-          target="_blank" 
-          rel="noreferrer"
-          className="px-8 py-4 bg-corporate-accent text-corporate font-semibold uppercase tracking-wide rounded hover:bg-white transition-colors duration-300 shadow-lg"
-        >
-          Cotizar por WhatsApp
-        </a>
+        <div className="pt-8 flex flex-col sm:flex-row justify-center gap-4">
+          <button 
+            onClick={() => setView('catalog')}
+            className="px-8 py-3 bg-corporate-accent text-white rounded shadow-lg hover:bg-red-600 transition-all hover:scale-105"
+          >
+            Ver Catálogo
+          </button>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
