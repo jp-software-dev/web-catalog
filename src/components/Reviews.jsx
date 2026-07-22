@@ -1,9 +1,12 @@
+import bgVideo from '../assets/video/video.mp4';
+
 export default function Reviews() {
   return (
     <section className="relative py-24 px-4 min-h-screen flex items-center">
-      {/* Fondo de Auto Oscuro */}
-      <img src="https://images.unsplash.com/photo-1605816988069-b11383b50717?auto=format&fit=crop&q=80&w=1900" alt="Auto Fondo" className="absolute inset-0 w-full h-full object-cover opacity-10 grayscale" />
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-brand-dark"></div>
+      <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover opacity-20">
+        <source src={bgVideo} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-dark/80 to-brand-black"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto w-full animate-fade-in-up">
         <div className="text-center mb-16">
@@ -15,17 +18,19 @@ export default function Reviews() {
           <div className="absolute top-0 left-0 w-1 h-full bg-brand-gold"></div>
           
           <div className="flex flex-col items-center justify-center p-6 w-full md:w-1/3 md:border-r border-gray-800">
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4">
+            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-lg">
               <span className="text-brand-black font-black text-2xl">G</span>
             </div>
             <h3 className="text-xl font-bold text-white mb-2 text-center">Refacciones Toluca</h3>
             <div className="flex text-brand-gold mb-2 text-xl">★★★★★</div>
             <p className="text-gray-400 text-sm mb-6 font-bold">4.9 Calificación en Google</p>
-            <a href="https://google.com" target="_blank" className="bg-transparent border-2 border-brand-gold text-brand-gold px-6 py-2 rounded-sm font-bold hover:bg-brand-gold hover:text-black transition-colors uppercase text-sm tracking-wider">Dejar Reseña ↗</a>
+            <a href="https://google.com" target="_blank" className="group bg-transparent border-2 border-brand-gold text-brand-gold px-6 py-2 rounded-sm font-bold hover:bg-brand-gold hover:text-black transition-colors uppercase text-sm tracking-wider flex items-center gap-2">
+              Dejar Reseña <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </a>
           </div>
 
           <div className="flex flex-col md:flex-row gap-6 w-full md:w-2/3">
-            <div className="bg-brand-black p-8 rounded-sm w-full md:w-1/2 border border-gray-900 hover:border-gray-700 transition-colors">
+            <div className="bg-brand-black p-8 rounded-sm w-full md:w-1/2 border border-gray-900 hover:border-brand-gold transition-colors shadow-lg">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-blue-900 flex items-center justify-center text-white font-bold">MA</div>
@@ -34,13 +39,13 @@ export default function Reviews() {
                     <p className="text-gray-500 text-xs">Local Guide</p>
                   </div>
                 </div>
-                <span className="text-gray-400 text-sm">G</span>
+                <span className="text-brand-gold font-bold text-sm">G</span>
               </div>
               <div className="flex text-brand-gold mb-3 text-sm">★★★★★</div>
               <p className="text-gray-300 text-sm italic leading-relaxed">"Solucionaron el problema de mi transmisión rápida y con piezas originales. Muy recomendados."</p>
             </div>
 
-            <div className="bg-brand-black p-8 rounded-sm w-full md:w-1/2 border border-gray-900 hover:border-gray-700 transition-colors">
+            <div className="bg-brand-black p-8 rounded-sm w-full md:w-1/2 border border-gray-900 hover:border-brand-gold transition-colors shadow-lg">
                <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-green-900 flex items-center justify-center text-white font-bold">RC</div>
@@ -49,7 +54,7 @@ export default function Reviews() {
                     <p className="text-gray-500 text-xs">hace 3 meses</p>
                   </div>
                 </div>
-                <span className="text-gray-400 text-sm">G</span>
+                <span className="text-brand-gold font-bold text-sm">G</span>
               </div>
               <div className="flex text-brand-gold mb-3 text-sm">★★★★★</div>
               <p className="text-gray-300 text-sm italic leading-relaxed">"Compré una bomba de dirección y me asesoraron en todo momento. Excelente taller."</p>
