@@ -29,4 +29,4 @@ To explore or run this B2B architecture locally:
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/jp-software-dev/refacciones-toluca.git](https://github.com/jp-software-dev/refacciones-toluca.git)
+   git clone https://github.com/jp-software-dev/refacciones-toluca.git
