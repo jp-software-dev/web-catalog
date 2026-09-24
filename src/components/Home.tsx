@@ -4,6 +4,16 @@ import { Link } from 'react-router-dom';
 import homePasion from '../assets/images/home-pasion.jpg';
 import { routes } from '../routes';
 import { business } from '../data/business';
+import type { Brand } from '../data/inventory';
+
+// Marcas destacadas: cada una abre el catálogo filtrado por esa marca
+const featuredBrands: { brand: Brand; style: string }[] = [
+  { brand: 'Ford', style: 'font-black tracking-widest' },
+  { brand: 'Nissan', style: 'font-bold tracking-widest' },
+  { brand: 'Chevrolet', style: 'font-serif italic' },
+  { brand: 'Volkswagen', style: 'font-black' },
+  { brand: 'Honda', style: 'font-bold tracking-tighter' },
+];
 
 export default function Home() {
   return (
@@ -27,12 +37,17 @@ export default function Home() {
       </div>
 
       <div className="bg-brand-card/90 border-y border-gray-800 py-8">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-10 md:gap-20 items-center opacity-70 grayscale">
-          <span className="text-2xl font-black tracking-widest text-white uppercase">Ford</span>
-          <span className="text-2xl font-bold tracking-widest text-white uppercase">Nissan</span>
-          <span className="text-2xl font-serif italic text-white uppercase">Chevrolet</span>
-          <span className="text-2xl font-black text-white uppercase">Volkswagen</span>
-          <span className="text-2xl font-bold tracking-tighter text-white uppercase">Honda</span>
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-10 md:gap-20 items-center">
+          {featuredBrands.map(({ brand, style }) => (
+            <Link
+              key={brand}
+              to={`${routes.catalog.path}?marca=${encodeURIComponent(brand)}`}
+              aria-label={`Ver refacciones ${brand}`}
+              className={`text-2xl text-white uppercase opacity-70 hover:opacity-100 hover:text-brand-gold hover:scale-110 transition-all ${style}`}
+            >
+              {brand}
+            </Link>
+          ))}
         </div>
       </div>
 

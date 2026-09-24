@@ -1,4 +1,5 @@
-import { useState, type Dispatch, type SetStateAction } from 'react';
+import { useEffect, useState, type Dispatch, type SetStateAction } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { vehicles, brands, years, categories, type Brand, type YearRange, type Category } from '../data/inventory';
 import { whatsappLink } from '../data/business';
 
@@ -6,11 +7,19 @@ type SortOrder = 'default' | 'asc' | 'desc';
 
 /** Minúsculas y sin acentos, para que "valvula" encuentre "Válvula". */
 const normalize = (text: string) => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+const isBrand = (value: string): value is Brand => (brands as readonly string[]).includes(value);
+
 type FilterSection = 'brand' | 'year' | 'category';
 
 export default function Catalog() {
+  // Las marcas seleccionadas viven también en la URL (?marca=Ford,Nissan) para poder compartir el enlace
+  const [searchParams, setSearchParams] = useSearchParams();
+
   // Estados para múltiples filtros
-  const [selectedBrands, setSelectedBrands] = useState<Brand[]>([]);
+  const [selectedBrands, setSelectedBrands] = useState<Brand[]>(
+    () => (searchParams.get('marca') ?? '').split(',').filter(isBrand)
+  );
   const [selectedYears, setSelectedYears] = useState<YearRange[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
   const [sortOrder, setSortOrder] = useState<SortOrder>('default');
@@ -22,6 +31,15 @@ export default function Catalog() {
     year: true,
     category: true
   });
+
+  useEffect(() => {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev);
+      if (selectedBrands.length > 0) next.set('marca', selectedBrands.join(','));
+      else next.delete('marca');
+      return next;
+    }, { replace: true });
+  }, [selectedBrands, setSearchParams]);
 
   const toggleSection = (section: FilterSection) => {
     setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
