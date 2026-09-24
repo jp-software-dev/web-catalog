@@ -22,7 +22,7 @@ export default function About() {
           <div className="w-full md:w-1/2 space-y-6">
             <h2 className="text-3xl font-black text-white leading-tight">Nuestra obsesión por el <span className="text-brand-gold">detalle mecánico.</span></h2>
             <p className="text-gray-400 leading-relaxed text-lg">
-              Somos un taller y refaccionaria en Toluca dedicado exclusivamente a resolver los problemas más complejos de tu vehículo. Ya sea que busques una pieza específica o requieras una reconstrucción completa de tu caja automática.
+              Somos un taller y refaccionaria dedicado exclusivamente a resolver los problemas más complejos de tu vehículo. Ya sea que busques una pieza específica o requieras una reconstrucción completa de tu caja automática.
             </p>
             <p className="text-gray-400 leading-relaxed text-lg">
               Nuestro equipo de técnicos te brindará una solución honesta, rápida y con garantía. Trabajamos con los estándares más altos de la industria automotriz.

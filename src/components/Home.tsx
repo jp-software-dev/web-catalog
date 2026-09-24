@@ -2,6 +2,7 @@ import VideoBackground from './VideoBackground';
 import { Link } from 'react-router-dom';
 import homePasion from '../assets/images/home-pasion.jpg';
 import { routes } from '../routes';
+import { business } from '../data/business';
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
             Precisión <span className="text-brand-gold">Mecánica</span><br/> para tu Vehículo.
           </h1>
           <p className="text-lg md:text-xl text-gray-200 font-medium mt-6 max-w-2xl border-l-4 border-brand-gold pl-4 drop-shadow-lg">
-            Especialistas en Taller y Refacciones de Transmisiones Automáticas y Direcciones Hidráulicas en Toluca.
+            Especialistas en Taller y Refacciones de Transmisiones Automáticas y Direcciones Hidráulicas.
           </p>
           <Link to={routes.catalog.path} className="group mt-10 px-10 py-4 bg-brand-gold text-black font-black uppercase tracking-widest rounded-sm hover:bg-yellow-500 hover:scale-105 transition-all shadow-[0_0_20px_rgba(212,175,55,0.4)] flex items-center gap-2 w-max">
             Catálogo Online 
@@ -42,7 +43,7 @@ export default function Home() {
           <div className="w-full md:w-1/2 space-y-6">
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight drop-shadow-lg">Impulsados por la pasión por la <span className="text-brand-gold">mecánica automotriz</span>.</h2>
             <p className="text-gray-300 text-lg leading-relaxed drop-shadow-md">
-              En Refacciones Toluca nos especializamos en ofrecer atención técnica excepcional a clientes que exigen perfección en el tren motriz de su vehículo.
+              En {business.name} nos especializamos en ofrecer atención técnica excepcional a clientes que exigen perfección en el tren motriz de su vehículo.
               <br/><br/>
               Desde diagnósticos de transmisiones automáticas hasta la reconstrucción de direcciones hidráulicas, cada servicio y pieza está diseñada para restaurar el valor y funcionamiento de tu auto.
             </p>

@@ -45,7 +45,7 @@ export default function Layout() {
 
           <Link to={routes.home.path} className="flex items-center gap-2 cursor-pointer group" aria-label={`${business.name} - Inicio`}>
             <span className="text-white font-black text-2xl md:text-3xl tracking-tighter group-hover:scale-105 transition-transform">
-              REF<span className="text-brand-gold">TOLUCA</span>
+              REF<span className="text-brand-gold">ACCIONES</span>
             </span>
           </Link>
 
@@ -99,7 +99,8 @@ export default function Layout() {
       <footer className="bg-brand-card pt-16 mt-auto border-t border-gray-900">
         <div className="max-w-7xl mx-auto px-4 lg:px-8 pb-12 grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="space-y-4">
-            <span className="text-white font-black text-4xl tracking-tighter">REF<span className="text-brand-gold">TOL</span></span>
+            <span className="text-white font-black text-4xl tracking-tighter">REF<span className="text-brand-gold">ACCIONES</span></span>
+            <p className="text-brand-gold text-xs font-bold uppercase tracking-[0.3em]">{business.tagline}</p>
             <p className="text-gray-400 text-sm mt-4">Especialistas en transmisiones automáticas y direcciones hidráulicas. Precisión y calidad garantizada.</p>
             <div className="pt-4">
               <p className="text-brand-gold font-bold mb-4 uppercase text-sm tracking-widest">Redes Sociales</p>

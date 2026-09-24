@@ -10,7 +10,7 @@ export default function Contact() {
       <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-12 w-full animate-fade-in-up text-center">
         <div className="space-y-4">
              <span className="text-brand-gold font-bold text-sm uppercase tracking-widest block">Ubicación del Taller</span>
-             <h1 className="text-4xl md:text-5xl font-black text-white">Visítanos en Toluca</h1>
+             <h1 className="text-4xl md:text-5xl font-black text-white">Visítanos en el Taller</h1>
              <p className="text-gray-400 text-lg max-w-2xl mx-auto">Te esperamos en nuestras instalaciones para brindarte la mejor atención y diagnóstico para tu vehículo.</p>
         </div>
 
