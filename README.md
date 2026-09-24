@@ -1,10 +1,12 @@
 # Refacciones — Web Catalog & Digital Presence
 
-![React](https://img.shields.io/badge/react-18-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/typescript-strict-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/vite-7-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-3-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Vercel](https://img.shields.io/badge/deployed_on-vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![Dark Gold](https://img.shields.io/badge/Theme-Dark_Gold-FFD700?style=for-the-badge)
 
 **Live demo:** [web-catalog-alpha.vercel.app](https://web-catalog-alpha.vercel.app)
 
