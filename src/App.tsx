@@ -10,6 +10,7 @@ import About from './components/About';
 import NotFound from './components/NotFound';
 import { routes, type RouteMeta } from './routes';
 import { usePageMeta } from './hooks/usePageMeta';
+import { business } from './data/business';
 
 function Page({ meta, children }: { meta: RouteMeta; children: ReactNode }) {
   usePageMeta(meta.title, meta.description, meta.path);
@@ -19,7 +20,7 @@ function Page({ meta, children }: { meta: RouteMeta; children: ReactNode }) {
 const notFoundMeta: RouteMeta = {
   path: '/404',
   label: 'No encontrado',
-  title: 'Página no encontrada | Refacciones Toluca',
+  title: `Página no encontrada | ${business.name}`,
   description: 'La página que buscas no existe.',
 };
 

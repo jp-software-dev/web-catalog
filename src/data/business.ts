@@ -2,8 +2,9 @@
 // Todos los valores son genéricos (de ejemplo). Reemplázalos con los reales antes de publicar.
 
 export const business = {
-  name: 'Refacciones Toluca',
-  description: 'Taller y refaccionaria especializada en transmisiones automáticas y direcciones hidráulicas en Toluca, Estado de México.',
+  name: 'Refacciones',
+  tagline: 'Catálogo y Taller Especializado',
+  description: 'Taller y refaccionaria especializada en transmisiones automáticas y direcciones hidráulicas.',
   siteUrl: 'https://www.ejemplo.com',
 
   phoneDisplay: '(722) 000 0000',
@@ -12,10 +13,10 @@ export const business = {
   email: 'contacto@ejemplo.com',
 
   address: {
-    locality: 'Toluca',
-    region: 'Estado de México',
+    locality: 'Ciudad',
+    region: 'Estado',
     country: 'MX',
-    display: 'Toluca, Estado de México',
+    display: 'Av. Principal 123, Centro',
   },
 
   hours: [
@@ -28,8 +29,8 @@ export const business = {
     instagram: 'https://www.instagram.com/',
   },
 
-  mapsEmbedUrl: 'https://www.google.com/maps?q=Toluca,+Estado+de+M%C3%A9xico&output=embed',
-  googleReviewsUrl: 'https://www.google.com/maps/search/?api=1&query=Refacciones+Toluca',
+  mapsEmbedUrl: 'https://www.google.com/maps?q=M%C3%A9xico&output=embed',
+  googleReviewsUrl: 'https://www.google.com/maps/search/?api=1&query=Refacciones',
 } as const;
 
 export const whatsappLink = (message?: string): string =>
