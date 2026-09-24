@@ -1,4 +1,5 @@
 import VideoBackground from './VideoBackground';
+import Faq from './Faq';
 import { Link } from 'react-router-dom';
 import homePasion from '../assets/images/home-pasion.jpg';
 import { routes } from '../routes';
@@ -54,6 +55,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <Faq />
     </div>
   );
 }
