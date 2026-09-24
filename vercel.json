@@ -1,5 +1,9 @@
 {
   "rewrites": [
-    { "source": "/:path(nosotros|servicios|catalogo|resenas|ubicacion)/?", "destination": "/index.html" }
+    { "source": "/nosotros", "destination": "/index.html" },
+    { "source": "/servicios", "destination": "/index.html" },
+    { "source": "/catalogo", "destination": "/index.html" },
+    { "source": "/resenas", "destination": "/index.html" },
+    { "source": "/ubicacion", "destination": "/index.html" }
   ]
 }
