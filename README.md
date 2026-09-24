@@ -16,8 +16,10 @@ A production-ready website template for automotive workshops and parts suppliers
 
 ## ✨ Features
 
-- **Parts catalog** — 100 sample parts with combinable multi-select filters (brand, year range, part type), price sorting and a one-click WhatsApp quote per item with a pre-filled message.
-- **Real URLs per section** — `/catalogo`, `/servicios`, `/nosotros`, `/resenas`, `/ubicacion`, plus a 404 page, powered by React Router.
+- **Parts catalog** — 100 sample parts with instant text search (accent-insensitive, multi-word: `bomba nissan`), combinable multi-select filters (brand, year range, part type), price sorting and a one-click WhatsApp quote per item with a pre-filled message.
+- **Shareable filtered views** — brand filters live in the URL (`/catalogo?marca=Nissan`); the featured brands on the home page link straight to them.
+- **Content sections** — FAQ accordion on the home page and a four-step "how we work" process on the services page.
+- **Real URLs per section** — `/catalogo`, `/servicios`, `/nosotros`, `/resenas`, `/ubicacion`, powered by React Router. Unknown routes return a real `404` status with a styled, `noindex` not-found page.
 - **SEO ready** — per-page title, description, canonical URL and Open Graph tags; `LocalBusiness` JSON-LD structured data; `sitemap.xml` and `robots.txt`.
 - **Accessible** — one `h1` per page, labelled icons and menus, keyboard skip link, `aria-expanded` on toggles.
 - **Performance** — lazy-loaded images, hashed and minified assets, ~80 KB transferred on first load (excluding the background video).
@@ -57,6 +59,7 @@ npm run dev
 | --- | --- |
 | Name, tagline, phone, WhatsApp, email, address, hours, social links, map | `src/data/business.ts` |
 | Catalog products, brands, years and categories | `src/data/inventory.ts` |
+| Frequently asked questions | `src/data/faq.ts` |
 | Page titles and meta descriptions | `src/routes.ts` |
 | Colors, font and animations | `tailwind.config.ts` |
 | Images and background video | `src/assets/` |
@@ -69,7 +72,7 @@ Adding a product is one line in `inventory.ts`; TypeScript rejects unknown brand
 ```
 src/
 ├── components/     # Pages (Home, Catalog, Services, …) and Layout (nav + footer)
-├── data/           # business.ts (contact & brand) · inventory.ts (catalog)
+├── data/           # business.ts (contact & brand) · inventory.ts (catalog) · faq.ts
 ├── hooks/          # usePageMeta — per-page title, description and Open Graph
 ├── routes.ts       # Route paths, labels and SEO metadata
 └── main.tsx        # App entry point
@@ -78,7 +81,6 @@ public/             # favicon, robots.txt, sitemap.xml, .htaccess
 
 ## 🗺 Roadmap
 
-- Text search in the catalog and filters stored in the URL
 - Pre-rendering each route to static HTML for richer social previews
 - Real product photos per part
 - Compressed background video with a poster image
