@@ -5,7 +5,7 @@ interface VideoBackgroundProps {
   opacity: string;
 }
 
-/** Video decorativo de fondo. Respeta "reducir movimiento" del sistema operativo. */
+/** Video decorativo de fondo. */
 export default function VideoBackground({ opacity }: VideoBackgroundProps) {
   return (
     <video
@@ -16,7 +16,7 @@ export default function VideoBackground({ opacity }: VideoBackgroundProps) {
       preload="metadata"
       aria-hidden="true"
       tabIndex={-1}
-      className={`absolute top-0 left-0 w-full h-full object-cover motion-reduce:hidden ${opacity}`}
+      className={`absolute top-0 left-0 w-full h-full object-cover ${opacity}`}
     >
       <source src={bgVideo} type="video/mp4" />
     </video>
