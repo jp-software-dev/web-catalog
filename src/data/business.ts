@@ -7,9 +7,9 @@ export const business = {
   description: 'Taller y refaccionaria especializada en transmisiones automáticas y direcciones hidráulicas.',
   siteUrl: 'https://www.ejemplo.com',
 
-  phoneDisplay: '(722) 000 0000',
-  phoneE164: '+527220000000',
-  whatsappNumber: '527220000000',
+  phoneDisplay: '(000) 000 0000',
+  phoneE164: '+520000000000',
+  whatsappNumber: '520000000000',
   email: 'contacto@ejemplo.com',
 
   address: {
