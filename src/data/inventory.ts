@@ -1,6 +1,24 @@
 import servicio3 from '../assets/images/servicio-3.jpg';
 
-export const vehicles = [
+export const brands = ["Volkswagen", "Ford", "Chevrolet", "Nissan", "Honda", "Toyota", "Mazda", "BMW", "Audi", "Hyundai"] as const;
+export const years = ["2000 - 2005", "2006 - 2010", "2011 - 2015", "2016 - 2020", "2021 - 2026"] as const;
+export const categories = ["Transmisión", "Dirección", "Fluidos", "Electrónica", "Enfriamiento", "Frenos", "Suspensión", "Motor"] as const;
+
+export type Brand = typeof brands[number];
+export type YearRange = typeof years[number];
+export type Category = typeof categories[number];
+
+export interface Part {
+  id: number;
+  title: string;
+  category: Category;
+  brand: Brand;
+  year: YearRange;
+  price: number;
+  img: string;
+}
+
+export const vehicles: Part[] = [
   { id: 1, title: "Cuerpo de Válvulas DSG", category: "Transmisión", brand: "Volkswagen", year: "2016 - 2020", price: 8500, img: servicio3 },
   { id: 2, title: "Cremallera de Dirección", category: "Dirección", brand: "Ford", year: "2021 - 2026", price: 6200, img: servicio3 },
   { id: 3, title: "Kit Discos de Fricción", category: "Transmisión", brand: "Chevrolet", year: "2006 - 2010", price: 3400, img: servicio3 },

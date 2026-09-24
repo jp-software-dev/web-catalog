@@ -1,30 +1,28 @@
-import { useState } from 'react';
-import { vehicles } from '../data/inventory';
+import { useState, type Dispatch, type SetStateAction } from 'react';
+import { vehicles, brands, years, categories, type Brand, type YearRange, type Category } from '../data/inventory';
+
+type SortOrder = 'default' | 'asc' | 'desc';
+type FilterSection = 'brand' | 'year' | 'category';
 
 export default function Catalog() {
   // Estados para múltiples filtros
-  const [selectedBrands, setSelectedBrands] = useState([]);
-  const [selectedYears, setSelectedYears] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [sortOrder, setSortOrder] = useState('default'); // 'asc' o 'desc'
+  const [selectedBrands, setSelectedBrands] = useState<Brand[]>([]);
+  const [selectedYears, setSelectedYears] = useState<YearRange[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
+  const [sortOrder, setSortOrder] = useState<SortOrder>('default');
   
   // Estados para el acordeón visual
-  const [openSections, setOpenSections] = useState({
+  const [openSections, setOpenSections] = useState<Record<FilterSection, boolean>>({
     brand: true,
     year: true,
     category: true
   });
 
-  // Opciones disponibles basadas en el inventario
-  const brands = ["Volkswagen", "Ford", "Chevrolet", "Nissan", "Honda", "Toyota", "Mazda", "BMW", "Audi", "Hyundai"];
-  const years = ["2000 - 2005", "2006 - 2010", "2011 - 2015", "2016 - 2020", "2021 - 2026"];
-  const categories = ["Transmisión", "Dirección", "Fluidos", "Electrónica", "Enfriamiento", "Frenos", "Suspensión", "Motor"];
-
-  const toggleSection = (section) => {
+  const toggleSection = (section: FilterSection) => {
     setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
   };
 
-  const handleCheckbox = (value, state, setState) => {
+  const handleCheckbox = <T extends string>(value: T, state: T[], setState: Dispatch<SetStateAction<T[]>>) => {
     if (state.includes(value)) {
       setState(state.filter(item => item !== value));
     } else {
@@ -33,7 +31,7 @@ export default function Catalog() {
   };
 
   // Filtrado y Ordenamiento Combinado
-  let filteredVehicles = vehicles.filter(v => {
+  const filteredVehicles = vehicles.filter(v => {
     const matchBrand = selectedBrands.length === 0 || selectedBrands.includes(v.brand);
     const matchYear = selectedYears.length === 0 || selectedYears.includes(v.year);
     const matchCategory = selectedCategories.length === 0 || selectedCategories.includes(v.category);
@@ -47,7 +45,7 @@ export default function Catalog() {
   }
 
   // Formatear precio
-  const formatPrice = (price) => {
+  const formatPrice = (price: number) => {
     return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(price);
   };
 
@@ -75,7 +73,7 @@ export default function Catalog() {
             {/* Ordenar Por */}
             <div className="mb-6">
               <label className="block text-brand-gold text-xs font-bold mb-3 uppercase tracking-widest">Ordenar Por</label>
-              <select onChange={(e) => setSortOrder(e.target.value)} className="w-full bg-brand-black text-gray-300 p-3 border border-gray-800 outline-none cursor-pointer text-sm focus:border-brand-gold transition-colors">
+              <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value as SortOrder)} className="w-full bg-brand-black text-gray-300 p-3 border border-gray-800 outline-none cursor-pointer text-sm focus:border-brand-gold transition-colors">
                 <option value="default">Relevancia</option>
                 <option value="asc">Precio: Menor a Mayor</option>
                 <option value="desc">Precio: Mayor a Menor</option>

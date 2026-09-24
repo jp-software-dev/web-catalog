@@ -1,4 +1,6 @@
-export default function Hero({ setView }) {
+import type { View } from '../types';
+
+export default function Hero({ setView }: { setView: (view: View) => void }) {
   return (
     <div className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-corporate-black">
       <video 

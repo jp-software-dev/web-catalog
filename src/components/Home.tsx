@@ -1,7 +1,8 @@
+import type { View } from '../types';
 import bgVideo from '../assets/video/video.mp4';
 import homePasion from '../assets/images/home-pasion.jpg';
 
-export default function Home({ setView }) {
+export default function Home({ setView }: { setView: (view: View) => void }) {
   return (
     <div className="w-full bg-brand-dark">
       

@@ -6,12 +6,13 @@ import Contact from './components/Contact';
 import Reviews from './components/Reviews';
 import About from './components/About';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import type { View } from './types';
 
 function App() {
-  const [view, setView] = useState('home');
+  const [view, setView] = useState<View>('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleNav = (newView) => {
+  const handleNav = (newView: View) => {
     setView(newView);
     setIsMobileMenuOpen(false); // Cierra el menú en móvil al hacer clic
     window.scrollTo({ top: 0, behavior: 'smooth' });
