@@ -3,6 +3,9 @@ import { vehicles, brands, years, categories, type Brand, type YearRange, type C
 import { whatsappLink } from '../data/business';
 
 type SortOrder = 'default' | 'asc' | 'desc';
+
+/** Minúsculas y sin acentos, para que "valvula" encuentre "Válvula". */
+const normalize = (text: string) => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 type FilterSection = 'brand' | 'year' | 'category';
 
 export default function Catalog() {
@@ -11,6 +14,7 @@ export default function Catalog() {
   const [selectedYears, setSelectedYears] = useState<YearRange[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
   const [sortOrder, setSortOrder] = useState<SortOrder>('default');
+  const [query, setQuery] = useState('');
   
   // Estados para el acordeón visual
   const [openSections, setOpenSections] = useState<Record<FilterSection, boolean>>({
@@ -31,12 +35,17 @@ export default function Catalog() {
     }
   };
 
+  // Búsqueda: cada palabra escrita debe aparecer en el nombre, marca, categoría o año
+  const searchTerms = normalize(query).split(/\s+/).filter(Boolean);
+
   // Filtrado y Ordenamiento Combinado
   const filteredVehicles = vehicles.filter(v => {
+    const haystack = normalize(`${v.title} ${v.brand} ${v.category} ${v.year}`);
+    const matchQuery = searchTerms.every(term => haystack.includes(term));
     const matchBrand = selectedBrands.length === 0 || selectedBrands.includes(v.brand);
     const matchYear = selectedYears.length === 0 || selectedYears.includes(v.year);
     const matchCategory = selectedCategories.length === 0 || selectedCategories.includes(v.category);
-    return matchBrand && matchYear && matchCategory;
+    return matchQuery && matchBrand && matchYear && matchCategory;
   });
 
   if (sortOrder === 'asc') {
@@ -129,13 +138,28 @@ export default function Catalog() {
               </div>
             </div>
             
-            <button type="button" onClick={() => { setSelectedBrands([]); setSelectedYears([]); setSelectedCategories([]); setSortOrder('default'); }} className="mt-6 w-full text-center text-xs text-gray-500 underline hover:text-brand-gold">
+            <button type="button" onClick={() => { setQuery(''); setSelectedBrands([]); setSelectedYears([]); setSelectedCategories([]); setSortOrder('default'); }} className="mt-6 w-full text-center text-xs text-gray-500 underline hover:text-brand-gold">
               Limpiar Filtros
             </button>
           </aside>
 
           {/* ÁREA DE PRODUCTOS (GRID) */}
           <div className="w-full lg:w-3/4">
+            {/* Buscador */}
+            <div className="relative mb-6">
+              <label htmlFor="buscar" className="sr-only">Buscar refacciones</label>
+              <svg className="w-5 h-5 text-brand-gold absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"></path></svg>
+              <input
+                id="buscar"
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder='Buscar por pieza, marca o categoría (ej. "bomba", "Nissan")'
+                autoComplete="off"
+                className="w-full bg-brand-card/50 text-gray-200 placeholder-gray-500 pl-12 pr-4 py-4 border border-gray-800 rounded-sm outline-none focus:border-brand-gold transition-colors"
+              />
+            </div>
+
             {filteredVehicles.length === 0 ? (
                <div className="bg-brand-card/50 border border-gray-800 p-10 text-center rounded-sm">
                  <p className="text-gray-400 font-bold text-lg mb-2">No encontramos refacciones con esos filtros.</p>
