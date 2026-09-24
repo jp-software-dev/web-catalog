@@ -1,4 +1,4 @@
-# Refacciones Toluca - B2B Premium Architecture
+# Refacciones - Web Catalog & Digital Presence
 
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -6,7 +6,7 @@
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![B2B Premium](https://img.shields.io/badge/Tier-B2B_Premium-FFD700?style=for-the-badge)
 
-This repository contains the frontend architecture for **Refacciones Toluca**, a specialized automotive workshop and parts supplier. Engineered as a **Premium B2B Web Architecture**, this project is designed to deliver a high-impact corporate presence, maximize client trust, and provide a highly scalable foundation for digital business operations.
+This repository contains the frontend architecture for **Refacciones**, a specialized automotive workshop and parts supplier. Engineered as a **Premium B2B Web Architecture**, this project is designed to deliver a high-impact corporate presence, maximize client trust, and provide a highly scalable foundation for digital business operations.
 
 ## ✨ Premium Features & Architecture
 
@@ -30,4 +30,4 @@ To explore or run this B2B architecture locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/jp-software-dev/refacciones-toluca.git
+   git clone https://github.com/jp-software-dev/web-catalog.git
