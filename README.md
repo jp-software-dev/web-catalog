@@ -18,9 +18,10 @@ This repository contains the frontend architecture for **Refacciones Toluca**, a
 
 ## 🛠 Technologies Used
 
-* **Build Tool:** Vite (Next-generation frontend tooling)
+* **Build Tool:** Vite 7 (Next-generation frontend tooling)
 * **Styling:** Tailwind CSS (Utility-first CSS framework for rapid UI development)
-* **Core:** Semantic HTML5, Vanilla JavaScript (ES6+)
+* **Core:** React 18 + TypeScript (strict mode), React Router, semantic HTML5
+* **SEO:** Per-route titles/meta, Open Graph, LocalBusiness JSON-LD, sitemap and robots.txt
 * **Integrations:** Interactive Maps, Google Reviews UI layout, WhatsApp Business API direct routing.
 
 ## 🚀 Installation & Setup
