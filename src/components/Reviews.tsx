@@ -1,16 +1,15 @@
-import bgVideo from '../assets/video/video.mp4';
+import VideoBackground from './VideoBackground';
+import { business } from '../data/business';
 
 export default function Reviews() {
   return (
     <section className="relative py-24 px-4 min-h-screen flex items-center">
-      <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover opacity-20">
-        <source src={bgVideo} type="video/mp4" />
-      </video>
+      <VideoBackground opacity="opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-dark/80 to-brand-black"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto w-full animate-fade-in-up">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-4">Lo que nuestros clientes <span className="text-brand-gold">dicen</span></h2>
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-4">Lo que nuestros clientes <span className="text-brand-gold">dicen</span></h1>
           <p className="text-gray-400 text-lg">Reseñas reales verificadas a través de Google.</p>
         </div>
 
@@ -21,11 +20,11 @@ export default function Reviews() {
             <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-lg">
               <span className="text-brand-black font-black text-2xl">G</span>
             </div>
-            <h3 className="text-xl font-bold text-white mb-2 text-center">Refacciones Toluca</h3>
-            <div className="flex text-brand-gold mb-2 text-xl">★★★★★</div>
+            <h2 className="text-xl font-bold text-white mb-2 text-center">{business.name}</h2>
+            <div className="flex text-brand-gold mb-2 text-xl" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
             <p className="text-gray-400 text-sm mb-6 font-bold">4.9 Calificación en Google</p>
-            <a href="https://google.com" target="_blank" className="group bg-transparent border-2 border-brand-gold text-brand-gold px-6 py-2 rounded-sm font-bold hover:bg-brand-gold hover:text-black transition-colors uppercase text-sm tracking-wider flex items-center gap-2">
-              Dejar Reseña <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+            <a href={business.googleReviewsUrl} target="_blank" rel="noreferrer" className="group bg-transparent border-2 border-brand-gold text-brand-gold px-6 py-2 rounded-sm font-bold hover:bg-brand-gold hover:text-black transition-colors uppercase text-sm tracking-wider flex items-center gap-2">
+              Dejar Reseña <span className="inline-block transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
             </a>
           </div>
 
@@ -41,7 +40,7 @@ export default function Reviews() {
                 </div>
                 <span className="text-brand-gold font-bold text-sm">G</span>
               </div>
-              <div className="flex text-brand-gold mb-3 text-sm">★★★★★</div>
+              <div className="flex text-brand-gold mb-3 text-sm" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
               <p className="text-gray-300 text-sm italic leading-relaxed">"Solucionaron el problema de mi transmisión rápida y con piezas originales. Muy recomendados."</p>
             </div>
 
@@ -56,7 +55,7 @@ export default function Reviews() {
                 </div>
                 <span className="text-brand-gold font-bold text-sm">G</span>
               </div>
-              <div className="flex text-brand-gold mb-3 text-sm">★★★★★</div>
+              <div className="flex text-brand-gold mb-3 text-sm" role="img" aria-label="5 de 5 estrellas">★★★★★</div>
               <p className="text-gray-300 text-sm italic leading-relaxed">"Compré una bomba de dirección y me asesoraron en todo momento. Excelente taller."</p>
             </div>
           </div>

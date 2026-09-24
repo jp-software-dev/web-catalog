@@ -1,15 +1,14 @@
-import type { View } from '../types';
-import bgVideo from '../assets/video/video.mp4';
+import VideoBackground from './VideoBackground';
+import { Link } from 'react-router-dom';
 import homePasion from '../assets/images/home-pasion.jpg';
+import { routes } from '../routes';
 
-export default function Home({ setView }: { setView: (view: View) => void }) {
+export default function Home() {
   return (
     <div className="w-full bg-brand-dark">
       
       <div className="relative h-[85vh] w-full flex items-center justify-start overflow-hidden bg-brand-black">
-        <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover opacity-50">
-          <source src={bgVideo} type="video/mp4" />
-        </video>
+        <VideoBackground opacity="opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-dark/70 to-transparent"></div>
         <div className="relative z-10 px-4 lg:px-16 max-w-7xl w-full animate-fade-in-up">
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-tight max-w-3xl drop-shadow-2xl">
@@ -18,10 +17,10 @@ export default function Home({ setView }: { setView: (view: View) => void }) {
           <p className="text-lg md:text-xl text-gray-200 font-medium mt-6 max-w-2xl border-l-4 border-brand-gold pl-4 drop-shadow-lg">
             Especialistas en Taller y Refacciones de Transmisiones Automáticas y Direcciones Hidráulicas en Toluca.
           </p>
-          <button onClick={() => setView('catalog')} className="group mt-10 px-10 py-4 bg-brand-gold text-black font-black uppercase tracking-widest rounded-sm hover:bg-yellow-500 hover:scale-105 transition-all shadow-[0_0_20px_rgba(212,175,55,0.4)] flex items-center gap-2 w-max">
+          <Link to={routes.catalog.path} className="group mt-10 px-10 py-4 bg-brand-gold text-black font-black uppercase tracking-widest rounded-sm hover:bg-yellow-500 hover:scale-105 transition-all shadow-[0_0_20px_rgba(212,175,55,0.4)] flex items-center gap-2 w-max">
             Catálogo Online 
-            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 text-xl leading-none">→</span>
-          </button>
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 text-xl leading-none" aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
 
@@ -38,7 +37,7 @@ export default function Home({ setView }: { setView: (view: View) => void }) {
       <div className="bg-brand-dark py-24 px-4 border-b border-gray-900">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
           <div className="w-full md:w-1/2 relative group">
-            <img src={homePasion} alt="Taller Mecánico" className="relative z-10 w-full h-auto object-cover rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700 shadow-2xl border border-gray-800" />
+            <img src={homePasion} alt="Mecánico trabajando en el taller" loading="lazy" decoding="async" className="relative z-10 w-full h-auto object-cover rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700 shadow-2xl border border-gray-800" />
           </div>
           <div className="w-full md:w-1/2 space-y-6">
             <h2 className="text-4xl md:text-5xl font-black text-white leading-tight drop-shadow-lg">Impulsados por la pasión por la <span className="text-brand-gold">mecánica automotriz</span>.</h2>
@@ -47,10 +46,10 @@ export default function Home({ setView }: { setView: (view: View) => void }) {
               <br/><br/>
               Desde diagnósticos de transmisiones automáticas hasta la reconstrucción de direcciones hidráulicas, cada servicio y pieza está diseñada para restaurar el valor y funcionamiento de tu auto.
             </p>
-            <button onClick={() => setView('contact')} className="group bg-brand-gold text-black px-6 py-3 rounded-sm font-bold uppercase tracking-widest hover:bg-yellow-500 transition-colors flex items-center gap-2 w-max">
+            <Link to={routes.contact.path} className="group bg-brand-gold text-black px-6 py-3 rounded-sm font-bold uppercase tracking-widest hover:bg-yellow-500 transition-colors flex items-center gap-2 w-max">
               UBICACIÓN 
-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 text-lg leading-none">→</span>
-            </button>
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 text-lg leading-none" aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </div>
