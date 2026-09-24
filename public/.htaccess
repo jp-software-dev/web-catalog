@@ -1,9 +1,9 @@
-# Apache / WAMP: envía todas las rutas del sitio (/catalogo, /nosotros, ...) a index.html
+# Apache / WAMP: las rutas del sitio (/catalogo, /nosotros, ...) cargan index.html;
+# cualquier otra ruta inexistente responde 404 con la página de error de la app.
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule ^(nosotros|servicios|catalogo|resenas|ubicacion)/?$ /index.html [L]
 </IfModule>

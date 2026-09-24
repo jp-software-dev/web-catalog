@@ -12,8 +12,8 @@ import { routes, type RouteMeta } from './routes';
 import { usePageMeta } from './hooks/usePageMeta';
 import { business } from './data/business';
 
-function Page({ meta, children }: { meta: RouteMeta; children: ReactNode }) {
-  usePageMeta(meta.title, meta.description, meta.path);
+function Page({ meta, noindex, children }: { meta: RouteMeta; noindex?: boolean; children: ReactNode }) {
+  usePageMeta(meta.title, meta.description, meta.path, noindex);
   return children;
 }
 
@@ -34,7 +34,7 @@ function App() {
         <Route path={routes.catalog.path} element={<Page meta={routes.catalog}><Catalog /></Page>} />
         <Route path={routes.reviews.path} element={<Page meta={routes.reviews}><Reviews /></Page>} />
         <Route path={routes.contact.path} element={<Page meta={routes.contact}><Contact /></Page>} />
-        <Route path="*" element={<Page meta={notFoundMeta}><NotFound /></Page>} />
+        <Route path="*" element={<Page meta={notFoundMeta} noindex><NotFound /></Page>} />
       </Route>
     </Routes>
   );

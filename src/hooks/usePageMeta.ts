@@ -21,8 +21,8 @@ function setCanonical(href: string) {
   el.href = href;
 }
 
-/** Actualiza título, descripción, canonical y Open Graph de la página actual. */
-export function usePageMeta(title: string, description: string, path: string) {
+/** Actualiza título, descripción, canonical, Open Graph y robots de la página actual. */
+export function usePageMeta(title: string, description: string, path: string, noindex = false) {
   useEffect(() => {
     const url = `${business.siteUrl}${path === '/' ? '' : path}`;
     document.title = title;
@@ -31,5 +31,6 @@ export function usePageMeta(title: string, description: string, path: string) {
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:url', url);
     setCanonical(url);
-  }, [title, description, path]);
+    setMeta('name', 'robots', noindex ? 'noindex' : 'index, follow');
+  }, [title, description, path, noindex]);
 }
