@@ -11,6 +11,13 @@ export default function Services() {
     { title: "Reparación de Direcciones", desc: "Solución a fugas, dureza y ruidos en sistemas de dirección hidráulica.", img: servicio3 }
   ];
 
+  const steps = [
+    { title: 'Diagnóstico', desc: 'Escaneo computarizado y revisión física para encontrar la causa real de la falla.' },
+    { title: 'Cotización', desc: 'Te explicamos el problema y te enviamos un presupuesto claro, sin cargos ocultos.' },
+    { title: 'Reparación', desc: 'Técnicos especialistas trabajan con refacciones OEM y de alto rendimiento.' },
+    { title: 'Entrega con Garantía', desc: 'Prueba de manejo final y garantía por escrito en cada servicio.' },
+  ];
+
   return (
     <section className="relative py-24 px-4 min-h-screen">
       <VideoBackground opacity="opacity-30" />
@@ -38,6 +45,25 @@ export default function Services() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Cómo trabajamos */}
+        <div className="pt-8">
+          <div className="text-center mb-12">
+            <p className="text-sm font-bold text-brand-gold uppercase tracking-[0.3em] mb-4">Proceso</p>
+            <h2 className="text-3xl md:text-5xl font-black text-white">Cómo <span className="text-brand-gold">Trabajamos</span></h2>
+          </div>
+          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {steps.map((step, i) => (
+              <li key={step.title} className="relative bg-brand-card/90 backdrop-blur-sm border border-gray-800 hover:border-brand-gold transition-colors rounded-sm p-8 text-center shadow-xl group">
+                <div className="w-14 h-14 mx-auto mb-6 rounded-full bg-brand-gold text-black font-black text-2xl flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.3)] group-hover:scale-110 transition-transform" aria-hidden="true">
+                  {i + 1}
+                </div>
+                <h3 className="text-lg font-black text-white uppercase tracking-wide mb-3">{step.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
