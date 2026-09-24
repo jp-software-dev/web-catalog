@@ -36,7 +36,7 @@ export const routes = {
     path: '/resenas',
     label: 'Reseñas',
     title: `Reseñas de Clientes | ${business.name}`,
-    description: 'Lo que dicen nuestros clientes sobre nuestro servicio de transmisiones y direcciones hidráulicas.',
+    description: 'Reseñas de ejemplo sobre nuestro servicio de transmisiones y direcciones hidráulicas.',
   },
   contact: {
     path: '/ubicacion',
